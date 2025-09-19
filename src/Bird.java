@@ -65,5 +65,4 @@ public class Bird extends Actor<Seeds> {
   public boolean eats(Seeds item) {
     return item.isSeeds();
   }
-
 }
