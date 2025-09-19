@@ -20,8 +20,6 @@ public class Main extends JFrame {
    * @throws Exception if an error occurs during window creation
    */
   public static void main(String[] args) throws Exception {
-      //Container<Dog> dogContainer = new Container<>(new Dog(null,false));
-    
       Main window = new Main();
       window.run();
     }
