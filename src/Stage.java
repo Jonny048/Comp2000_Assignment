@@ -181,6 +181,12 @@ public class Stage {
     g.setColor(Color.DARK_GRAY);
     for(Actor a: actors){
       g.drawString(a.getClass().getSimpleName(), panelX,y);
+
+      if (a.isBot()) {
+            g.drawString(" (Bot)", panelX + 70, y);
+        } else {
+            g.drawString(" (Human)", panelX + 70, y);
+        }
       y += lineHeight;
 
       g.drawString("Location: ", panelX + labelIndent, y);
@@ -237,11 +243,13 @@ public class Stage {
         //Find and select an actor at the clicked location
         for(Actor a: actors){
           if(a.loc.contains(x,y)){
-            selectedActor = Optional.of(a);
-            //Highlight all possible moves for the selected actor
-            highlightedCells = getClearRadius(a.loc, a.moves);
-            currentState = State.SelectingNewLocation;
-            break;
+            if(!a.isBot()){
+              selectedActor = Optional.of(a);
+              //Highlight all possible moves for the selected actor
+              highlightedCells = getClearRadius(a.loc, a.moves);
+              currentState = State.SelectingNewLocation;
+              break;
+            }
           }
         }
         break;
