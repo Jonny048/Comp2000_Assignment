@@ -182,11 +182,11 @@ public class Stage {
     for(Actor a: actors){
       g.drawString(a.getClass().getSimpleName(), panelX,y);
 
-      if (a.isBot()) {
-            g.drawString(" (Bot)", panelX + 70, y);
-        } else {
-            g.drawString(" (Human)", panelX + 70, y);
-        }
+      if (a.isBot()){
+          g.drawString(" (Bot)", panelX + 70, y);
+        }else{
+          g.drawString(" (Human)", panelX + 70, y);
+      }
       y += lineHeight;
 
       g.drawString("Location: ", panelX + labelIndent, y);
